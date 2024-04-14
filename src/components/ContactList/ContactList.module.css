@@ -2,4 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  width: fit-content;
+}
+.item {
+  display: flex;
+  flex-direction: column;
 }

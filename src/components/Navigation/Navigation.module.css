@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  gap: 6px;
+  width: fit-content;
+  padding: 0px 12px;
+}
+.link {
+  color: black;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.isCurrent {
+  color: orangered;
+}

@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 
-const validationSchema = (contacts) => {
+export const contactsValidationSchema = (contacts) => {
   return Yup.object().shape({
     name: Yup.string()
       .min(3, 'Too short')
@@ -37,39 +37,19 @@ const validationSchema = (contacts) => {
   })
 }
 
-export default validationSchema
+export const registrationValidationSchema = Yup.object({
+  name: Yup.string().required('Required'),
+  email: Yup.string()
+    .email('Invalid email format')
+    .required('Required'),
+  password: Yup.string()
+    .min(7, 'Minimum 7 characters')
+    .required('Required'),
+})
 
-// Знаю що потрібно видаляти закоменотований код, я його не забув а лишив. Пізніше приберу. Не зверкайте уваги будьласка)
-
-// const schema = Yup.object().shape({
-//   userName: Yup.string()
-//     .min(3, 'Too short')
-//     .max(50, 'Too long')
-//     .required('Required'),
-//   userNumber: Yup.number()
-//     .typeError("That doesn't look like a phone number")
-//     .integer("A phone number can't include a decimal point")
-//     .positive("A phone number can't start with a minus")
-//     .test(
-//       'is-length',
-//       'Must be between 3 and 50 digits',
-//       value => (value && /^\d{3,50}$/.test(value.toString()))
-//     )
-//     .required('A phone number is required'),
-// });
-
-// export const schema = Yup.object().shape({
-//   name: Yup.string()
-//     .min(3, 'Too short')
-//     .max(50, 'Too long')
-//     .required('Required'),
-//   number: Yup.string()
-//     .test(
-//       'is-valid-format',
-//       "That doesn't look like a phone number",
-//       (value) => /^[\d-]+$/.test(value),
-//     )
-//     .min(3, 'Too short')
-//     .max(50, 'Too long')
-//     .required('Required'),
-// });
+export const loginValidationSchema = Yup.object({
+  email: Yup.string()
+    .email('Invalid email format')
+    .required('Required'),
+  password: Yup.string().required('Required'),
+})

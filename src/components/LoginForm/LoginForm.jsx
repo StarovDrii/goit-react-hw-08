@@ -14,7 +14,8 @@ export default function LoginForm() {
     dispatch(login(values))
       .unwrap()
       .then((value) => {
-        toast.success(`Access is allowed, ${value.name}`, {
+        console.log(value);
+        toast.success(`Access is allowed, ${value.user.name}`, {
           position: 'top-right',
         })
       })
